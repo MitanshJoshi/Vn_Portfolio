@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+:root {
+  /* Neutral base — warm near-black, not the stock navy/slate dev-portfolio look */
+  --color-background: #0a0a0d;
+  --color-surface: #141317;
+  --color-surface-2: #1c1b21;
+  --color-border: #26252c;
+  --color-border-strong: #37353f;
+  --color-foreground: #f6f5f3;
+  --color-muted-foreground: #9b99a6;
+
+  /* Primary — warm gold. Brand color + primary CTAs. */
+  --color-primary: #f0b23f;
+  --color-primary-soft: #f7cd7a;
+  --color-on-primary: #16110a;
+
+  /* Secondary — muted teal. Secondary actions, links, interactive accents. */
+  --color-secondary: #3fbdb0;
+  --color-on-secondary: #052220;
+
+  /* Success — emerald. Reserved exclusively for results / impact / positive stats. */
+  --color-success: #3ad17f;
+  --color-on-success: #062414;
+
+  /* Third tag hue — used only for project-category labels, kept out of the CTA/stat vocabulary. */
+  --color-tag-rose: #ef7b93;
+  --color-on-tag-rose: #2b0813;
+
+  --color-ring: var(--color-primary);
+}
+
+@theme inline {
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-surface-2: var(--color-surface-2);
+  --color-border: var(--color-border);
+  --color-border-strong: var(--color-border-strong);
+  --color-foreground: var(--color-foreground);
+  --color-muted-foreground: var(--color-muted-foreground);
+
+  --color-primary: var(--color-primary);
+  --color-primary-soft: var(--color-primary-soft);
+  --color-on-primary: var(--color-on-primary);
+
+  --color-secondary: var(--color-secondary);
+  --color-on-secondary: var(--color-on-secondary);
+
+  --color-success: var(--color-success);
+  --color-on-success: var(--color-on-success);
+
+  --color-tag-rose: var(--color-tag-rose);
+  --color-on-tag-rose: var(--color-on-tag-rose);
+
+  --color-ring: var(--color-ring);
+
+  --font-sans: var(--font-plex-sans);
+  --font-display: var(--font-fraunces);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-border-strong) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-border-strong) 55%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-gradient-primary {
+  background: linear-gradient(120deg, var(--color-primary-soft), var(--color-primary) 55%, #d99a2e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.card-glow {
+  position: relative;
+}
+
+.card-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 45%, transparent), transparent 45%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card-glow:hover::before {
+  opacity: 1;
+}
