@@ -109,9 +109,9 @@ export const experience: ExperienceItem[] = [
     period: "Feb 2025 — Present",
     location: "Ahmedabad, Gujarat (Hybrid)",
     highlights: [
-      "Built a full-stack bullion trading platform using React Native, Node/Express, and PostgreSQL.",
-      "Delivered real-time MCX gold/silver price feeds via WebSockets with JWT-secured APIs.",
-      "Developed AI-powered market intelligence using LLMs for trading insights and personalized recommendations.",
+      "Built a full-stack bullion trading platform spanning 3 codebases (React Native customer and admin apps, Node.js/Express API) with 37 screens, 58 REST endpoints and 9 PostgreSQL models across auth, KYC and orders.",
+      "Engineered real-time MCX gold/silver price streaming over Socket.io from a broker WebSocket feed, with 1–30 s backoff auto-reconnect, MongoDB snapshots every 30 s and a 30 s polling fallback for uninterrupted prices.",
+      "Secured trading with rotating JWT refresh tokens, bcrypt (12 rounds), 15-min OTP resets and tiered rate limits (100 req/min); built a 5-stage order workflow, atomic transactions and 12 audited admin actions.",
     ],
   },
   {
